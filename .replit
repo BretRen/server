@@ -1,0 +1,18 @@
+run = ["bash", "main.sh"]
+
+entrypoint = "main.sh"
+
+[nix]
+channel = "stable-22_11"
+
+[[ports]]
+localPort = 8081
+externalPort = 80
+
+[[ports]]
+localPort = 25577
+externalPort = 3000
+
+[deployment]
+deploymentTarget = "gce"
+run = ["sh", "-c", "./main.sh"]
